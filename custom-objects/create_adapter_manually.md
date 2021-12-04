@@ -30,5 +30,7 @@ The `typeId` instance variable assigns the number to be registered to that adapt
 The `read()` method is called when your object has to be read from the disk. Use the `BinaryReader` to read all the properties of your object. In the above sample, it is only an `int` containing `millisecondsSinceEpoch`.  
 The `write()` method is the same just for writing the object to the disk.
 
+!> Be sure to use the specialized versions (`readInt()/writeInt()`, `readString()/writeString()`, etc...) of the reader/writer. The generic `write()` behaves differently as it writes a byte representing the type id of the specific type before writing the data using the `write$Type` method.
+
 ?> Make sure, you read properties in the same order you have written them before.
 
